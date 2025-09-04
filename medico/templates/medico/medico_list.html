@@ -1,0 +1,17 @@
+{% extends 'medico/base.html' %}
+
+{% block title %}Lista de Médicos{% endblock %}
+
+{% block content %}
+<h2>Lista de Médicos</h2>
+<a href="{% url 'medico_create' %}">+ Novo Médico</a>
+<ul>
+    {% for m in medicos %}
+        <li>
+            {{ m.nome }} - {{ m.crm }} - {{ m.especialidade.nome }}
+            <a href="#">Editar</a> |
+            <a href="#">Deletar</a>
+        </li>
+    {% endfor %}
+</ul>
+{% endblock %}
